@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { StatusIndicator } from "@/components/status-indicator"
@@ -5,31 +6,17 @@ import { FeatureCard } from "@/components/feature-card"
 import { ServiceCard } from "@/components/service-card"
 import { SponsorSection } from "@/components/sponsor-section"
 import { HowItWorks } from "@/components/how-it-works"
-import {
-  LayoutGrid,
-  LineChart,
-  Link2,
-  Smartphone,
-  Users,
-  Target,
-  ImageIcon,
-  MousePointerClick,
-  Heading1,
-  Globe,
-  Share2,
-  Mail,
-  Search,
-} from "lucide-react"
+import { LayoutGrid, LineChart, Link2, Globe, Share2, Mail, Search } from "lucide-react"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <div className="absolute top-4 right-4">
+        <StatusIndicator status="operational" />
+      </div>
+
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center py-20 px-4 text-center bg-black text-white">
-        <div className="absolute top-4 right-4 sm:top-8 sm:right-8">
-          <StatusIndicator status="operational" />
-        </div>
-
         <Badge variant="outline" className="mb-6 bg-teal-950 text-teal-400 border-teal-800 px-3 py-1">
           <span className="mr-1 h-2 w-2 rounded-full bg-teal-400 inline-block"></span> Now in Beta
         </Badge>
@@ -60,7 +47,7 @@ export default function Home() {
       {/* How It Works Section */}
       <HowItWorks />
 
-      {/* Benefits Section */}
+      {/* Features Section */}
       <section className="py-20 px-4 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 md:w-1/2">
@@ -99,85 +86,11 @@ export default function Home() {
 
               <FeatureCard
                 number="04"
-                icon={<Target className="h-6 w-6 text-orange-500" />}
+                icon={<LayoutGrid className="h-6 w-6 text-orange-500" />}
                 title="Test Marketing Ideas"
                 description="Easily A/B test different layouts and designs to find what works best for your audience."
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 px-4 bg-black text-white">
-        <div className="max-w-7xl mx-auto text-center mb-16">
-          <h2 className="text-orange-500 mb-4 text-lg font-medium">Features</h2>
-          <h3 className="text-4xl font-bold mb-6">What Makes Us Different</h3>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Lnkshop combines powerful features with an intuitive interface to help you create the perfect storefront for
-            your audience.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-teal-950 flex items-center justify-center mb-6">
-              <Smartphone className="h-6 w-6 text-teal-500" />
-            </div>
-            <h4 className="text-xl font-bold mb-4">Mobile Friendly</h4>
-            <p className="text-gray-400">
-              Responsive design ensures your storefront looks great on any device, from desktop to mobile.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-teal-950 flex items-center justify-center mb-6">
-              <Users className="h-6 w-6 text-teal-500" />
-            </div>
-            <h4 className="text-xl font-bold mb-4">Social Proof</h4>
-            <p className="text-gray-400">
-              Showcase customer reviews and testimonials to build trust and credibility with your audience.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-teal-950 flex items-center justify-center mb-6">
-              <Target className="h-6 w-6 text-teal-500" />
-            </div>
-            <h4 className="text-xl font-bold mb-4">Targeted Content</h4>
-            <p className="text-gray-400">
-              Customize your storefront based on where your visitors are coming from for a personalized experience.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-teal-950 flex items-center justify-center mb-6">
-              <ImageIcon className="h-6 w-6 text-teal-500" />
-            </div>
-            <h4 className="text-xl font-bold mb-4">Strong Visuals</h4>
-            <p className="text-gray-400">
-              Auto-generate rich previews of your products with images and descriptions pulled directly from your links.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-teal-950 flex items-center justify-center mb-6">
-              <MousePointerClick className="h-6 w-6 text-teal-500" />
-            </div>
-            <h4 className="text-xl font-bold mb-4">Clear CTA</h4>
-            <p className="text-gray-400">
-              Guide your visitors with clear call-to-action buttons that drive conversions and sales.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-teal-950 flex items-center justify-center mb-6">
-              <Heading1 className="h-6 w-6 text-teal-500" />
-            </div>
-            <h4 className="text-xl font-bold mb-4">Clear Headline</h4>
-            <p className="text-gray-400">
-              Communicate your value proposition clearly with customizable headlines and descriptions.
-            </p>
           </div>
         </div>
       </section>
@@ -234,6 +147,22 @@ export default function Home() {
           <p className="mt-4 text-sm text-gray-400">No credit card required. 14-day free trial.</p>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-6 text-muted-foreground text-center">
+          <Link href="#" className="hover:underline">
+            About
+          </Link>
+          <Link href="#" className="hover:underline">
+            Pricing
+          </Link>
+          <Link href="#" className="hover:underline">
+            Contact
+          </Link>
+          <span>© 2025 Lnkshop.xyz</span>
+        </div>
+      </footer>
     </main>
   )
 }
